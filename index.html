@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Search Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="eyebrow">Application Log</p>
+      <h1>Job Search Tracker</h1>
+      <p class="subhead">MAG APPLY KA NA NG TRABAHO</p>
+    </header>
+
+    <main>
+      <aside class="entry-panel">
+        <p class="panel-label">New Entry</p>
+        <form id="trackerForm">
+          <label for="company">Company</label>
+          <input type="text" id="company" required>
+
+          <label for="role">Role</label>
+          <input type="text" id="role" required>
+
+          <label for="status">Status</label>
+          <select id="status" required>
+            <option value="">Select</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Accepted">Accepted</option>
+          </select>
+
+          <label for="dateApplied">Date Applied</label>
+          <input type="date" id="dateApplied" required>
+
+          <label for="notes">Notes</label>
+          <textarea id="notes" rows="3" placeholder="Optional"></textarea>
+
+          <button type="submit">Log Application</button>
+        </form>
+      </aside>
+
+      <section class="ledger-panel">
+        <p class="panel-label">Record</p>
+        <p id="loadingMessage" class="loading-message">Loading applications...</p>
+        <div class="table-wrapper">
+          <table id="applicationTable">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Date Applied</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody id="applicationTableBody"></tbody>
+          </table>
+          <p id="emptyMessage" class="empty-message hidden">No applications logged yet. Add your first one on the left.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Data stored in Google Sheets.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
